@@ -209,3 +209,30 @@ body {
     }
   }
 }
+
+.back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: black;
+  color: white;
+  padding: 0.5rem 0.75rem;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  text-decoration: none;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 1000;
+
+  &.visible {
+    opacity: 0.8;
+    pointer-events: auto;
+  }
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+

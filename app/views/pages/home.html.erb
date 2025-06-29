@@ -1,5 +1,5 @@
-<div class="home-page">
-
+<div id="home" class="home-page">
+  <%= render 'shared/navbar' %>
   <div class="banner">
     <div class="banner-text">
       <h1 class="main-title">Actor</h1>
@@ -9,4 +9,10 @@
       <%= image_tag "Copia de Alejandro_Contreras_PortraitB&W", class: "portrait hide-on-mobile", alt: "Portrait of Alejandro" %>
     </div>
   </div>
+
+  <%= render "about" %>
+  <%= render "media" %>
+  <%= render "contact" %>
+
+  <a href="#home" class="back-to-top" id="backToTop" title="Back to top">↑</a>
 </div>
