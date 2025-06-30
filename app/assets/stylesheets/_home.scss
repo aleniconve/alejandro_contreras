@@ -11,6 +11,7 @@
     padding-right: 2rem;
     background-color: black;
     color: white;
+    box-shadow: 0 4px 6px -2px rgba(0, 0, 0, 0.3);
 
     .nav-links {
       justify-self: start;
@@ -84,6 +85,7 @@ img.portrait {
   aspect-ratio: 3 / 4;
   object-fit: cover;
   object-position: center;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
 body {
@@ -214,19 +216,20 @@ body {
   position: fixed;
   bottom: 2rem;
   right: 2rem;
-  background: black;
-  color: white;
-  padding: 0.5rem 0.75rem;
-  border-radius: 50%;
-  font-size: 1.5rem;
+  color: grey;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  padding: 0.2rem 1rem;        // more horizontal padding
+  border-radius: 0.5rem;       // gentle rounded corners
+  font-size: 1.2rem;
   text-decoration: none;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s ease;
   z-index: 1000;
+  background: white;
 
   &.visible {
-    opacity: 0.8;
+    opacity: 1;
     pointer-events: auto;
   }
 
@@ -235,4 +238,10 @@ body {
   }
 }
 
-
+// body {
+//   background-image: image-url('pexels-karolina-grabowska.jpg');
+//   background-attachment: fixed;
+//   background-size: cover;
+//   background-position: center center;
+//   background-repeat: no-repeat;
+// }
