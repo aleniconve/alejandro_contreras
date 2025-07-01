@@ -1,38 +1,88 @@
-.media-section {
-  padding: 4rem 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2rem;
+.reveal-container {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  width: 100%;
+  max-width: none;
+  aspect-ratio: 3 / 4;
 
-  .media-content {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    justify-content: center;
-    align-items: center;
+  .reveal-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;   // contain so full image is visible
+    display: block;
+    transform: scale(1.05);
+    opacity: 0;
+    transition: transform 1s ease, opacity 1s ease;
+    position: relative;  // above overlay when visible
+    z-index: 1;
   }
 
-  .media-item {
-    flex: 1 1 300px;
-
-    .media-img {
-      width: 100%;
-      max-width: 400px;
-      border-radius: 8px;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-      transition: transform 0.3s ease;
-
-      &:hover {
-        transform: scale(1.03);
-      }
-    }
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    background: white;
+    z-index: 2;
+    transition: transform 1s ease;
   }
 
-  .media-text {
-    max-width: 600px;
-    text-align: center;
-    font-size: 1.1rem;
-    font-family: 'Nanum Myeongjo';
+  &.from-left::before {
+    left: 0;
+    transform: translateX(0);
+  }
+
+  &.from-right::before {
+    right: 0;
+    transform: translateX(0);
+  }
+
+  &.visible .reveal-img {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  &.visible.from-left::before {
+    transform: translateX(100%);
+  }
+
+  &.visible.from-right::before {
+    transform: translateX(-100%);
+  }
+}
+
+.about-grid {
+  width: 100%;
+  max-width: 1200px;  // container max width
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.about-grid > .reveal-container:nth-child(4) {
+  grid-column: 1 / -1;
+  aspect-ratio: 3 / 4;
+  max-height: 400px;
+  height: auto;
+
+  // make sure image fills container fully
+  .reveal-img {
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-grid > .reveal-container:nth-child(4) {
+    grid-column: auto;
   }
 }

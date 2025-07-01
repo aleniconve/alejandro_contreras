@@ -1,13 +1,17 @@
-<section id="media" class="media-section">
-  <div class="media-content">
-    <div class="media-item fade-in-left">
-      <%= image_tag "Ale1.jpg", class: "media-img" %>
-    </div>
-    <div class="media-item fade-in-right">
-      <%= image_tag "Ale2.jpg", class: "media-img" %>
-    </div>
-    <div class="media-text fade-in-up">
-      <p>I’m an actor with experience in film, theater, and voice work. I bring presence and versatility to the screen, always focused on craft and clarity. Let the work speak for itself.</p>
-    </div>
+<div id="about" class="about-grid">
+  <div class="reveal-container from-left" data-controller="reveal">
+    <%= image_tag "Ale3.jpg", class: "reveal-img" %>
   </div>
-</section>
+
+  <div class="reveal-container from-right" data-controller="reveal">
+    <%= image_tag "Ale2.jpg", class: "reveal-img" %>
+  </div>
+
+  <div class="reveal-container from-left" data-controller="reveal">
+    <%= image_tag "Fauno.jpg", class: "reveal-img" %>
+  </div>
+
+  <div class="reveal-container from-right" data-controller="reveal">
+    <%= image_tag "Ale1.jpg", class: "reveal-img" %>
+  </div>
+</div>
