@@ -3,7 +3,6 @@
   overflow: hidden;
   display: block;
   width: 100%;
-  max-width: none;
   aspect-ratio: 3 / 4;
 
   .reveal-img {
@@ -52,10 +51,14 @@
     transform: translateX(-100%);
   }
 
-  // HOVER EFFECT
-  &:hover .reveal-img {
+  // Show white overlay and dim image once revealed
+  &.revealed .reveal-img {
     opacity: 0.3;
     transform: scale(1);
+  }
+
+  &.revealed .overlay-text {
+    opacity: 1;
   }
 
   .overlay-text {
@@ -77,10 +80,6 @@
     font-size: 1rem;
     z-index: 3;
   }
-
-  &:hover .overlay-text {
-    opacity: 1;
-  }
 }
 
 .about-grid {
@@ -97,7 +96,6 @@
   grid-column: 1 / -1;
   aspect-ratio: 3 / 4;
   max-height: 400px;
-  height: auto;
 
   .reveal-img {
     object-fit: contain;
