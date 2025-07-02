@@ -283,13 +283,13 @@ body {
 
 }
 
-// body {
-//   background-image: image-url('pexels-pietrozj.jpg');
-//   background-attachment: fixed;
-//   background-size: cover;
-//   background-position: center center;
-//   background-repeat: no-repeat;
-// }
+body {
+  background-image: image-url('pexels-pietrozj-opacity.png');
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
 
   @keyframes bounce {
     0%, 100% {
