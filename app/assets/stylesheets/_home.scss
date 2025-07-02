@@ -303,3 +303,7 @@ body {
   .back-to-top.bounce {
     animation: bounce 1s;
   }
+
+[id] {
+  scroll-margin-top: 300px;  /* Adjust this value to your navbar height or desired gap */
+}
