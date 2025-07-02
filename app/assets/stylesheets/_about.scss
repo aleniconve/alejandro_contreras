@@ -9,12 +9,12 @@
   .reveal-img {
     width: 100%;
     height: 100%;
-    object-fit: contain;   // contain so full image is visible
+    object-fit: contain;
     display: block;
     transform: scale(1.05);
     opacity: 0;
     transition: transform 1s ease, opacity 1s ease;
-    position: relative;  // above overlay when visible
+    position: relative;
     z-index: 1;
   }
 
@@ -51,11 +51,41 @@
   &.visible.from-right::before {
     transform: translateX(-100%);
   }
+
+  // HOVER EFFECT
+  &:hover .reveal-img {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+
+  .overlay-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.8);
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    padding: 1rem;
+    font-family: 'Nanum Myeongjo';
+    font-size: 1rem;
+    z-index: 3;
+  }
+
+  &:hover .overlay-text {
+    opacity: 1;
+  }
 }
 
 .about-grid {
   width: 100%;
-  max-width: 1200px;  // container max width
+  max-width: 1200px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -69,7 +99,6 @@
   max-height: 400px;
   height: auto;
 
-  // make sure image fills container fully
   .reveal-img {
     object-fit: contain;
     width: 100%;
