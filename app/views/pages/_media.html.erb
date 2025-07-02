@@ -3,9 +3,15 @@
       <div class="banner-text">
         <h1 class="main-title">Actor</h1>
       </div>
-      <div class="banner-image">
-        <%= image_tag "Alejandro_Contreras_Portrait", class: "portrait", alt: "Portrait of Alejandro" %>
-        <%= image_tag "Copia de Alejandro_Contreras_PortraitB&W", class: "portrait hide-on-mobile", alt: "Portrait of Alejandro" %>
+    <div class="banner-image">
+      <div class="portrait-wrapper">
+        <%= image_tag "Alejandro_Contreras_Portrait", class: "portrait original", alt: "Portrait of Alejandro" %>
+        <%= image_tag "Copia de Alejandro_Contreras_PortraitB&W", class: "portrait hover", alt: "Portrait of Alejandro Hover" %>
       </div>
+      <div class="portrait-wrapper hide-on-mobile">
+        <%= image_tag "AlePro", class: "portrait original", alt: "Portrait of Alejandro" %>
+        <%= image_tag "Treeman", class: "portrait hover", alt: "Portrait of Alejandro Hover" %>
+      </div>
+    </div>
     </div>
 </div>

@@ -52,44 +52,60 @@
       font-size: 1.8rem;  // reduced base size
     }
 
-    .banner-image img {
-      width: 100%;
-      max-width: 300px;
-      height: auto;
+    .banner-image {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.2rem;
+      flex-wrap: wrap; // allow wrapping if needed
+      max-width: 100%;
     }
   }
 }
 
-// BANNER IMAGE FLEXBOX
-.banner-image {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.2rem;
-  flex-wrap: wrap; // allow wrapping if needed
-  max-width: 100%;
-}
-
-// PORTRAIT IMAGES
-img.portrait {
-  width: 100%;
-  max-width: 300px;
-  height: auto;
-  object-fit: cover;
-  object-position: center;
-}
-
-.portrait {
+// PORTRAIT IMAGE WRAPPER (for hover swap)
+.portrait-wrapper {
+  position: relative;
   width: 100%;
   max-width: 300px;
   aspect-ratio: 3 / 4;
-  object-fit: cover;
-  object-position: center;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-}
+  overflow: hidden;
 
-body {
-  overflow-x: hidden;
+  .portrait {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    transition: opacity 0.5s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .original {
+    opacity: 1;
+    z-index: 1;
+    position: relative; // keep original image above hover initially
+  }
+
+  .hover {
+    opacity: 0;
+    z-index: 0;
+  }
+
+  &:hover {
+    .original {
+      opacity: 0;
+      z-index: 0;
+    }
+
+    .hover {
+      opacity: 1;
+      z-index: 1;
+    }
+  }
 }
 
 // HIDE ELEMENT ON MOBILE (below 700px)
@@ -110,9 +126,15 @@ body {
       flex-direction: column;
       align-items: center;
 
-      img.portrait {
-        width: 90%;
+      .portrait-wrapper {
+        max-width: 90%;
         height: auto;
+        position: relative;
+
+        .portrait {
+          position: absolute; // keep images stacked
+          height: 100%;
+        }
       }
     }
   }
@@ -132,8 +154,12 @@ body {
         font-size: 1.8rem;  // reduced from 2rem
       }
 
-      .banner-image img {
+      .banner-image .portrait-wrapper {
         max-width: 400px;
+
+        .portrait {
+          height: 100%;
+        }
       }
     }
   }
@@ -146,8 +172,12 @@ body {
       font-size: 2.5rem;  // reduced from 3rem
     }
 
-    .banner-image img {
+    .banner-image .portrait-wrapper {
       max-width: 500px;
+
+      .portrait {
+        height: 100%;
+      }
     }
   }
 }
@@ -194,9 +224,15 @@ body {
       flex-direction: column;
       align-items: center;
 
-      img.portrait {
-        width: 90%;
+      .portrait-wrapper {
+        max-width: 90%;
         height: auto;
+        position: relative;
+
+        .portrait {
+          position: absolute; // keep images stacked
+          height: 100%;
+        }
       }
     }
 
@@ -210,6 +246,10 @@ body {
       }
     }
   }
+}
+
+body {
+  overflow-x: hidden;
 }
 
 .back-to-top {
