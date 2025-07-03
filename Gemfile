@@ -71,3 +71,7 @@ end
 gem "sassc-rails"
 
 gem "bootstrap", "~> 5.3"
+
+group :development do
+  gem 'dotenv-rails'
+end

@@ -1,19 +1,33 @@
-<div id="contact" class="section">
-  <div class="banner">
-      <div class="banner-text">
-        <h1 class="main-title">Actor</h1>
-      </div>
-      <div class="banner-image">
-      <div class="portrait-wrapper">
-        <%= image_tag "Alejandro_Contreras_Portrait", class: "portrait original", alt: "Portrait of Alejandro" %>
-        <%= image_tag "Alejandro_Contreras_PortraitB&W", class: "portrait hover", alt: "Portrait of Alejandro Hover" %>
-      </div>
-      <div class="portrait-wrapper hide-on-mobile">
-        <%= image_tag "AlePro", class: "portrait original", alt: "Portrait of Alejandro" %>
-        <%= image_tag "Treeman", class: "portrait hover", alt: "Portrait of Alejandro Hover" %>
-      </div>
-    </div>
+<section id="contact" class="contact-section">
+  <h2 class="section-title">Contact Me</h2>
+
+  <div class="contact-container">
+    <div class="contact-form">
+      <%= form_with url: "/contact_submit", method: :post, local: true do |f| %>
+        <div class="form-group">
+          <%= f.label :name, "Name" %>
+          <%= f.text_field :name, required: true, placeholder: "Your name" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :email, "Email" %>
+          <%= f.email_field :email, required: true, placeholder: "your.email@example.com" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :message, "Message" %>
+          <%= f.text_area :message, required: true, placeholder: "Write your message here...", rows: 5 %>
+        </div>
+
+        <%= f.submit "Send", class: "btn-submit" %>
+      <% end %>
     </div>
 
+    <div class="contact-info">
+      <h3>Get in Touch</h3>
+      <p>Email: <a href="mailto:contrerasx@gmail.com">contrerasx@gmail.com</a></p>
+      <p>Phone: +49 157 517 18428</p>
+      <p>Address: Walther-Kunze-Str. 40, 22765, Hamburg</p>
     </div>
-</div>
+  </div>
+</section>
