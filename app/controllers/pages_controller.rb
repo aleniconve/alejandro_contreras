@@ -17,18 +17,20 @@ class PagesController < ApplicationController
     message = params[:message]
 
     if name.blank? || email.blank? || message.blank?
-      flash[:alert] = "Please fill in all fields."
-      redirect_to contact_path and return
+      flash.now[:alert] = "Please fill in all fields."
+      return render turbo_stream: turbo_stream.replace("flash_messages", partial: "shared/flash")
     end
 
     unless email.match?(URI::MailTo::EMAIL_REGEXP)
-      flash[:alert] = "Please enter a valid email address."
-      redirect_to contact_path and return
+      flash.now[:alert] = "Please enter a valid email address."
+      return render turbo_stream: turbo_stream.replace("flash_messages", partial: "shared/flash")
     end
 
     ContactMailer.contact_email(name, email, message).deliver_now
 
-    flash[:notice] = "Thank you for your message! I will get back to you soon."
-    redirect_to contact_path
+    respond_to do |format|
+      format.js   # render contact_submit.js.erb
+    end
   end
+
 end

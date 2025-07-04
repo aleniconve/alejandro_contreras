@@ -1,0 +1,11 @@
+<%= turbo_stream.replace "flash_messages" do %>
+  <div id="flash_messages">
+    <% flash.each do |key, message| %>
+      <div class="flash <%= key %>"><%= message %></div>
+    <% end %>
+  </div>
+<% end %>
+
+<%= turbo_stream.replace "contact_form" do %>
+  <%= render partial: "contact_form" %>
+<% end %>
