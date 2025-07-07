@@ -1,4 +1,4 @@
-<div class="contact-form">
+<div class="contact-form" id="contact_form">
   <%= form_with url: contact_submit_path, method: :post, data: { turbo: true }, id: "contact-form" do |f| %>
     <div class="form-group">
       <%= f.label :name, "Name" %>
