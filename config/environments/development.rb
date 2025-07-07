@@ -75,7 +75,9 @@ Rails.application.configure do
   config.action_controller.raise_on_missing_callback_actions = true
 
 
-# Email via SMTP
+
+  # Email via SMTP (Gmail
+
   config.action_mailer.smtp_settings = {
     address:              "smtp.gmail.com",
     port:                 587,
@@ -85,4 +87,5 @@ Rails.application.configure do
     authentication:       "plain",
     enable_starttls_auto: true
   }
+
 end

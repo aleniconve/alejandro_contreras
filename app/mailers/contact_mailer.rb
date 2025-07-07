@@ -9,3 +9,4 @@ class ContactMailer < ApplicationMailer
     mail(from: email, subject: "New Contact Message from #{@name}")
   end
 end
+
